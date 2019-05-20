@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-image:url(img/fundo.jpg);
+            
+
+        }
+
+        .texto {
+            
+            color: white;
+            font-size: 1.5em;
+            text-align:center;
+            
+            
+            
+            
+
+          
+        }
+
+        .caixa {
+            border-style: solid;
+            border-width:1px;
+            color:white;
+            background-color:rgba(250, 235, 215, 0.267);
+            height:400x;
+            width:400px;
+            padding:5%;
+            margin-top:10%;
+            margin-left:30%;
+            margin-bottom:10%;
+            margin-right:10%;
+            border-radius:10px;
+
+              
+            
+        }
+
+        #login {
+            border-radius:10px;
+        }
+
+        #senha {
+            border-radius:10px;
+        }
+
+        button {
+            border-radius:10px;
+            margin-top:15px;
+            border-width:5px;
+            width:125px;
+            
+            
+        }
+    </style>
+</head>
+
+<body class="estilo">
+    <div class="caixa">
+        <form class="texto">
+            <h2>Seja bem-vindo!</h2>
+            Login:
+            <input type="text" id="login"><br><br>
+
+            Senha:
+            <input type="password" id="senha"><br><br>
+
+
+            <button type="button" onclick="entrar()">Entrar</button><br>
+
+            <a href="https://support.google.com/mail/answer/41078?co=GENIE.Platform%3DAndroid&hl=pt-BR" style="color:white; font-size:0.7em; text-decoration:none">Esqueceu a senha?<a>
+
+
+
+
+        </form>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function entrar() {
+
+
+        if (senha.value == "" || login.value == "") {
+            alert(`Preencha todos os campos`);
+        }
+        else if (senha.value == "amor1234" && login.value == "bianca.barranco1808@gmail.com") {
+            window.location="https://www.mercadolivre.com.br/";
+        }
+
+        else {
+            alert(`Login ou senha inválidos!`);
+        }
+
+
+
+
+    }
+
+
+
+
+
+</script>

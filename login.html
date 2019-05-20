@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="CSS/estilos.css">
+  <link rel="stylesheet" href="CSS/bootstrap.min.css">
+
+  <link rel="stylesheet" href="JS/jquery-3.3.1.min.js">
+  <link rel="stylesheet" href="JS/bootstrap.bundle.min.js">
+
+
+
+</head>
+
+<body>
+
+
+  <div class="container-fluid">
+    <div class="row no-gutter">
+      <div><img src="img/compras.jpg"></div>
+      <div class="col-md-8 col-lg-6">
+        <div class="login d-flex align-items-center py-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-9 col-lg-8 mx-auto">
+
+                <h3 class="login-heading mb-4">Bem-vindo ao canal de compras e vendas online!</h3>
+                <form>
+                  <div class="form-label-group">
+                    <input type="email" id="inputEmail" class="form-control" placeholder="Login" required autofocus>
+                    <label for="inputEmail">Login</label>
+                  </div>
+
+                  <div class="form-label-group">
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+                    <label for="inputPassword">Senha</label>
+                  </div>
+
+                  <div class="custom-control custom-checkbox mb-3">
+                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                    <label class="custom-control-label" for="customCheck1">Lembrar a senha</label>
+                  </div>
+                  <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit"
+                    onclick="entrar()">Entrar</button>
+                  <div class="text-center">
+                    <a class="small" href="https://support.google.com/mail/answer/41078?co=GENIE.Platform%3DAndroid&hl=pt-BR">Esqueceu a senha?</a></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script>
+  function entrar() {
+
+    var senha = inputPassword.value;
+    var login = inputEmail.value;
+    if (senha == "" || login == "") {
+      alert(`Preencha todos os campos`);
+    }
+    else if (senha == "amor1234" && login == "bianca.barranco1808@gmail.com") {
+      alert(`SEJA BEM-VINDO!`);
+    }
+
+    else {
+      alert(`Login ou senha inválidos!`);
+    }
+
+
+
+
+  }
+
+  
+
+
+
+
+
+</script>
