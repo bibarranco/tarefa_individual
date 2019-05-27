@@ -65,16 +65,17 @@
 
 <body class="estilo">
     <div class="caixa">
-        <form class="texto">
+        <form class="texto" onsubmit="return entrar()" id="form_registro">
+
             <h2>Seja bem-vindo!</h2>
             Login:
-            <input type="text" id="login"><br><br>
+            <input type="text" id="login" name="login"><br><br>
 
             Senha:
-            <input type="password" id="senha"><br><br>
+            <input type="password" id="senha" name="senha"><br><br>
 
 
-            <button type="button" onclick="entrar()">Entrar</button><br>
+            <button>Entrar</button><br>
 
             <a href="https://support.google.com/mail/answer/41078?co=GENIE.Platform%3DAndroid&hl=pt-BR" style="color:white; font-size:0.7em; text-decoration:none">Esqueceu a senha?<a>
 
@@ -88,26 +89,47 @@
 </html>
 
 <script>
+    function verificarAutenticacao(){
+    if(localStorage.bi!=undefined){
+        window.location.href='privado.html';
+    }
+}
     function entrar() {
 
 
         if (senha.value == "" || login.value == "") {
             alert(`Preencha todos os campos`);
+            return false;
         }
-        else if (senha.value == "amor1234" && login.value == "bianca.barranco1808@gmail.com") {
-            window.location="https://www.mercadolivre.com.br/";
-        }
-
         else {
-            alert(`Login ou senha inválidos!`);
+            // swal({
+            //     title: "Obrigado",
+            //     text: "Vamos entrar em contato!",
+            //     icon: "success",
+            // })
+            //     .then((willDelete) => {
+            //         if (willDelete) {
+                var formulario = new URLSearchParams(new FormData(form_registro));
+            console.log(formulario);
+            fetch('/users/entrar',{
+                method:"POST",
+                body:formulario
+            }).then((response)=>{
+                if(response.ok){
+                    response.json().then((resposta)=>{
+                        console.log(resposta);
+                        
+                        localStorage.bi = resposta.nome;
+                        verificarAutenticacao();
+                    })
+                }else{
+                    alert(`Login ou senha inválidos!`)
+                }
+            });
+            return false;
+
         }
-
-
-
-
-    }
-
-
+}
 
 
 

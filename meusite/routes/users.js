@@ -57,10 +57,10 @@ router.post('/entrar',(req,res,next)=>{
     console.log(`Chegou para registro: ${JSON.stringify(req.body)}`);
 
     // Dados do formul�rio do organizador
-    var nome = req.body.peca;
+    var login = req.body.login;
     var senha = req.body.senha;
 
-    return banco.sql.query(`SELECT * FROM cadastro where nome_peca = '${nome}' and senha='${senha}'`);
+    return banco.sql.query(`SELECT * FROM cadastroBianca where login = '${login}' and senha='${senha}'`);
   }).then((consulta)=>{
     console.log(consulta.recordset);
     if(consulta.recordset.length == 1){
