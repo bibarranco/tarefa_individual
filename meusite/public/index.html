@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-image:url(img/hamburguer.jpg);
+            background-size: cover;
+
+        }
+
+        .texto {
+            
+            color: white;
+            font-size: 1.3em;
+        
+            
+
+          
+        }
+
+        h3 {
+             text-align:center;
+        }
+
+        .caixa {
+            border-style: solid;
+            border-width:1px;
+            color:white;
+            background-color:rgba(250, 235, 215, 0.267);
+            height:400x;
+            width:400px;
+            padding:5%;
+            /* margin-top:10%; */
+            /* margin-left:30%; */
+            /* margin-bottom:10%; */
+            /* margin-right:10%; */
+            border-radius:10px;
+            
+
+              
+            
+        }
+
+        input {
+            border-radius:10px;
+            display: block;
+            width: 300px;
+            
+           
+        }
+
+       
+        button {
+            border-radius:10px;
+            margin-top:15px;
+            border-width:5px;
+            width:125px;
+           
+            
+            
+        }
+    </style>
+</head>
+
+<body class="estilo">
+    <div class="caixa">
+        <form class="texto" onsubmit='return cadastrar()' method="POST" id="form_registro">
+            <h3>Faça o seu cadastro e aproveite as promoções!</h3>
+            Nome completo:
+            <input type="text" id="nome" name="nome"><br>
+
+            Data de nascimento:
+            <input type="date" id="nascimento" name="datanasc"><br>
+
+            E-mail:
+            <input type="text" id="email" name="email"><br>
+
+            Telefone:
+            <input type="number" id="tel" name="telefone"><br>
+
+            Criar login:
+            <input type="text" id="login" name="login"><br>
+
+            Criar senha:
+            <input type="password" id="senha" name="senha"><br>
+
+
+
+
+            <button>Cadastrar</button><br>
+
+            
+
+
+
+
+        </form>
+    </div>
+</body>
+
+</html>
+
+<script>
+function cadastrar() {
+
+if (nome.value=="" || nascimento.value=="" || email.value=="" || tel.value=="" || login.value=="" || senha.value=="" ) {
+    alert(`Preencha todos os campos!`);
+    return false;
+}
+
+
+else if (senha.value.length<5) {
+    alert(`A senha deve possuir pelo menos 5 caracteres!`);
+}
+
+else {
+
+    //  window.location="privado.html";
+     var formulario= new URLSearchParams(new FormData(form_registro));
+     console.log(formulario);
+     fetch('/users/registrar',{
+         method:"POST",
+         body:formulario
+     }).then((response)=>{
+         if(response.ok){
+             setTimeout(function(){window.location='simples.html'},2000);
+         }else {
+             console.log(`Erro no registro.`);
+         }
+     });
+     return false;
+ }
+
+
+
+}
+
+
+
+
+</script>
